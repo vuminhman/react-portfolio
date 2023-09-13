@@ -1,0 +1,128 @@
+// NavBar.scss
+
+@import '../../common/variables.scss';
+
+.navbar {
+  background-color: var(--navbar-bg);
+  color: var(--navbar-text-color);
+  padding: 1rem;
+  box-shadow: 0px 3px 10px $box-shadow-color;
+
+  position: fixed; // Stick to the top
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: top 0.3s; // Smooth hide/show
+
+  // Aero effect
+  backdrop-filter: blur(10px);
+
+  &.hidden {
+    top: -100px; // Hide when scrolling down
+  }
+
+  &.visible {
+    top: 0; // Show when scrolling up
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .social-links,
+  .page-links,
+  .download-buttons {
+    display: flex;
+    align-items: center;
+
+    a,
+    button {
+      margin: 0 0.5rem;
+      transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+      color: var(--navbar-text-color);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--button-bg-hover);
+      }
+    }
+
+  }
+
+  .social-links {
+    a {
+      font-size: $font-size-social;
+    }
+  }
+
+  .page-links {
+    a {
+      font-size: $font-size-page-links;
+      font-weight: $font-weight-page-links;
+      text-transform: uppercase;
+    }
+  }
+
+  .download-buttons {
+    button {
+      background-color: var(--primary-text-color);
+      color: var(--primary-bg-color);
+      padding: $button-padding;
+      border-radius: $button-border-radius;
+      font-weight: $button-font-weight;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--button-bg-hover);
+        color: var(--button-text-hover);
+      }
+    }
+  }
+}
+
+// ... (existing styles)
+
+@media (max-width: 768px) {
+  .navbar .container {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .social-links,
+    .page-links,
+    .download-buttons {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .page-links {
+    flex-direction: column;
+
+    a {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .download-buttons {
+    flex-direction: column;
+
+    button {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}

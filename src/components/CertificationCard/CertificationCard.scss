@@ -1,0 +1,102 @@
+@import '../../common/animations.scss';
+
+.certification-card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .toggle-btn {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem; // Increase the font size
+    border-bottom: 2px solid var(--secondary-text-color); // Add a bottom border
+    padding-bottom: 0.2rem; // Add some padding to the bottom
+    margin-bottom: 0.5rem; // Add some margin to the bottom
+    color: var(--secondary-text-color);
+
+    background: var(--background-gradient);
+
+    .arrow {
+      transition: transform 0.3s ease;
+    }
+
+    &.open .arrow {
+      transform: rotate(180deg);
+    }
+
+    &.open {
+      color: var(--primary-text-color); // Change color when open
+      border-bottom-color: var(--primary-text-color); // Change border color when open
+    }
+  }
+
+  .certification-card-details {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .card-text {
+      color: var(--card-text);
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: #007bff;
+    }
+
+    .icon-text {
+      margin-right: 10px;
+      color: var(--primary-text-color); // or choose any color you prefer
+      font-size: 1.2em; // Increase the size if you prefer
+    }
+    
+  }
+
+  .show-credential-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  .highlighted-text {
+    font-weight: 600; // Makes the text bold
+    color: var(--card-text); // Uses the primary button background color as the text color
+    margin-right: 0.5rem; // Adds a little space after the highlighted text
+  }
+
+  .certification-icon {
+    width: 7rem;
+    height: 4rem;
+    margin-right: 10px;
+    vertical-align: middle;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+}

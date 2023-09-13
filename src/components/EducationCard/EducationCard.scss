@@ -1,0 +1,230 @@
+.timeline-item {
+  position: relative;
+  padding-left: 60px; // Make room for the timeline line
+  display: flex;
+  flex-direction: row;
+
+  .time-wrapper {
+    position: absolute;
+    left: -50px; // Adjust as needed
+    width: 75px; // Adjust as needed
+    height: 30px; // Set a height
+    line-height: 30px; // To vertically align text
+    text-align: center;
+    background-color: rgb(74 108 247 / var(--card-bg-opacity)); // Background color
+    border-radius: 15px; // Rounded corners
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); // subtle shadow
+    transition: all 0.3s ease; // Smooth transition for hover effects
+    padding: 4px;
+
+    &:hover {
+      background-color: #e1e1e1; // Background color on hover
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); // More pronounced shadow on hover
+    }
+
+    &.start-time {
+      bottom: 10px; // Align this as you want it relative to the bottom
+    }
+
+    &.end-time {
+      top: 10px; // Align this as you want it relative to the top
+    }
+
+    .time {
+      font-weight: bold;
+      color: #333; // Dark text for better readability
+    }
+  }
+
+  // ... existing styles
+
+  .activity-timeline {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50px; // Horizontal position of the activity line
+    width: 10px; // Width of the line
+    background-color: #352f2f; // Background color of the line
+
+    // Circles connecting activity timeline
+    .connect-circles-top,
+    .connect-circles-bottom {
+      position: absolute;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      background-color: #ccc; // Same color as the line
+      border-radius: 50%; // Make it round
+    }
+
+    // Position the circles
+    .connect-circles-top {
+      top: 0;
+      transform: translateY(-50%) translateX(-50%);
+    }
+
+    .connect-circles-bottom {
+      bottom: 0;
+      transform: translateY(50%) translateX(-50%);
+    }
+
+    // The central SVG point on the activity timeline
+    .timeline-icon-point {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      fill: #007bff; // Set SVG color
+      width: 24px; // Set width
+      height: 24px; // Set height
+    }
+  }
+
+  .last-activity .connect-circles-bottom {
+    display: none; // Hide the bottom circle for the last activity
+  }
+
+
+
+  // Card styling
+  .timeline-content {
+    background: var(--card-bg);
+    color: var(--card-text);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px var(--box-shadow-color);
+    margin: 20px;
+
+    &:hover {
+      box-shadow: 0 6px 12px var(--box-shadow-color-hover);
+      transform: translateY(-5px);
+    }
+
+    h3,
+    h4 {
+      margin: 0 0 10px 0;
+    }
+
+    .time {
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .highlights {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+
+      .transcript-button {
+        margin-left: 20px;
+        background: linear-gradient(90deg, #5e72e4 0%, #825ee4 100%);
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 16px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: linear-gradient(90deg, #825ee4 0%, #5e72e4 100%);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+          transform: translateY(-2px);
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .highlight-text {
+        background: linear-gradient(90deg, rgba(255, 0, 150, 1) 0%, rgba(0, 204, 255, 1) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-right: 10px;
+      }
+    }
+
+    .details {
+      list-style: none;
+      margin: 20px 0;
+      padding: 0;
+
+      li {
+        display: flex; // To align icon and text
+        align-items: center; // Vertical alignment
+        background-color: var(--card-bg);
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+        color: var(--card-text);
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: var(--card-bg-hover);
+          box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        span.icon {
+          margin-right: 10px; // Space between icon and text
+        }
+
+        span.title {
+          font-weight: 600; // Make the title bold
+          margin-right: 5px; // Space between title and content
+        }
+      }
+    }
+
+
+  }
+}
+
+@media (min-width: 1024px) {
+  .timeline-item {
+    display: flex;
+
+    
+    // For left-aligned items
+    &.left {
+      flex-direction: row;
+
+      .time-wrapper {
+        left: 55%;
+        transform: translateX(-55%);
+      }
+
+      .timeline-content {
+        order: 1; // Ensure it stays on the left
+        width: 45%; // Your preferred width
+        transform: translateX(-10%);
+      }
+    }
+    
+    // For right-aligned items
+    &.right {
+      flex-direction: row-reverse;
+      
+      .time-wrapper {
+        left: 45%;
+        transform: translateX(-45%);
+      }
+
+      .timeline-content {
+        order: 1; // Ensure it stays on the right
+        width: 45%; // Your preferred width
+        transform: translateX(0%);
+      }
+    }
+
+    // This is to ensure that your activity timeline stays centered
+    .activity-timeline {
+      left: 50%; // Position it at the center
+      transform: translateX(-50%); // Correct for the width of the line
+    }
+  }
+}

@@ -1,0 +1,57 @@
+// Projects.scss
+.projects-section {
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    
+
+    h2 {
+        grid-column: 1 / -1; // Make the title span all columns
+    }
+}
+
+.grid-2-columns {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3-columns {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4-columns {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.category-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    grid-column: 1 / -1;
+  }
+  
+  .category-button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-text-color);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: var(--hover-bg-color);
+    }
+  
+    &.selected {
+      background-color: var(--selected-bg-color);
+    }
+  }
+
+  
+  
+  
+  
+  

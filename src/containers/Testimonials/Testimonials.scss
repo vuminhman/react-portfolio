@@ -1,0 +1,116 @@
+.testimonials-wrapper {
+    background-color: var(--primary-bg-color);
+    
+}
+
+.testimonials-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--primary-bg-color);
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.testimonial-card {
+    position: relative;
+    // border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 50px rgba(55, 55, 55, 0.5);
+    padding: 20px;
+    background-color: var(--card-bg);
+    color: var(--card-text);
+    padding: 3rem 3rem 6rem 3rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .company-logo {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .testimonial-text {
+        margin: 50px 0;
+        font-size: 1.2rem; 
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        line-height: 1.6; 
+        text-align: justify; 
+        letter-spacing: 0.5px; 
+        color: var(--card-text);
+        opacity: 0.9; // Slightly increased for better readability
+        text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1); // Adds a subtle shadow for depth
+        padding: 15px; // Padding to give the text some breathing room
+        border-left: 4px solid var(--secondary-text-color); // Adds a vertical border to the left for visual interest
+        background: var(--quote-bg); // Adds a subtle background to make the text pop
+        font-style: italic;
+        
+        // Adds a slight hover effect to make it interactive
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s ease;
+        }
+    
+        // For better readability on small screens
+        @media (max-width: 768px) {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+    }
+    
+
+
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            bottom: -50px;
+            left: 5px;
+
+            img {
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+
+            h3 {
+                margin: 0;
+                font-size: 1rem;
+            }
+
+            .position {
+                font-size: 1rem;
+                color: #777;
+                margin-top: 0.3rem;
+            }
+        }
+
+        .quote-icon {
+            width: 3rem;
+            height: 3rem;
+            position: absolute;
+            bottom: -30px;
+            right: 2px;
+        }
+    }
+}
